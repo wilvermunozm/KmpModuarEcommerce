@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "171200997867",
+    "project_id": "mawi-apps-utils",
+    "storage_bucket": "mawi-apps-utils.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:171200997867:android:54a105115e5e520fcd51ae",
+        "android_client_info": {
+          "package_name": "com.mawiapps.utils"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "171200997867-17niegaiovhpr3766ukrfc03f6p4ouc7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mawiapps.utils",
+            "certificate_hash": "68ddfd541307ab2274de1e15a8822e2a471f8842"
+          }
+        },
+        {
+          "client_id": "171200997867-mi4dbnvj5l29jl2tiqdkjmhdvs1gdrom.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmDQIL3m4qEGJJo5SxfBND9dRXCezloHQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "171200997867-mi4dbnvj5l29jl2tiqdkjmhdvs1gdrom.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "171200997867-80uv8a8ft093fnftctm64dcidi25v3b6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mawiapps.utils"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:171200997867:android:cb78907513948069cd51ae",
+        "android_client_info": {
+          "package_name": "org.wil.nutrisport"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "171200997867-j2m73s47f2uc70jlumd352ta2s1orudf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.wil.nutrisport",
+            "certificate_hash": "755793c24392b55b69ecdc8c64e0e11e04f92269"
+          }
+        },
+        {
+          "client_id": "171200997867-mi4dbnvj5l29jl2tiqdkjmhdvs1gdrom.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmDQIL3m4qEGJJo5SxfBND9dRXCezloHQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "171200997867-mi4dbnvj5l29jl2tiqdkjmhdvs1gdrom.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "171200997867-80uv8a8ft093fnftctm64dcidi25v3b6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mawiapps.utils"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
