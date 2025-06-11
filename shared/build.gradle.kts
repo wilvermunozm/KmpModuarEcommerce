@@ -42,10 +42,10 @@ kotlin {
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodel)
-            implementation(libs.androidx.lifecycle.runtimeCompose)
+            implementation(libs.androidx.lifecycle.runtime.compose)
         }
         commonTest.dependencies {
-            implementation(libs.kotlin.test)
+            //implementation(libs.kotlin.test)
         }
     }
 }

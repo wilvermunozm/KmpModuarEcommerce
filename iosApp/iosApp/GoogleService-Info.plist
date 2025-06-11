@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>171200997867-mi78ao7b2qtj5t4e5e98gehu7ocsdll6.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.171200997867-mi78ao7b2qtj5t4e5e98gehu7ocsdll6</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>171200997867-17niegaiovhpr3766ukrfc03f6p4ouc7.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDU7fsJBS_Fc03HfOTEVXHOFM6uIPzTA8Q</string>
+	<key>GCM_SENDER_ID</key>
+	<string>171200997867</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>org.wil.nutrisport.NutriSport</string>
+	<key>PROJECT_ID</key>
+	<string>mawi-apps-utils</string>
+	<key>STORAGE_BUCKET</key>
+	<string>mawi-apps-utils.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:171200997867:ios:27a450cee9fe29d1cd51ae</string>
+</dict>
+</plist>

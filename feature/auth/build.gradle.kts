@@ -29,6 +29,31 @@ kotlin {
 
     sourceSets {
 
+        val iosX64Main by getting {
+            dependencies {
+                implementation(compose.material3)
+                implementation(compose.runtime)
+                implementation(compose.foundation)
+                implementation(compose.ui)
+            }
+        }
+        val iosArm64Main by getting {
+            dependencies {
+                implementation(compose.material3)
+                implementation(compose.runtime)
+                implementation(compose.foundation)
+                implementation(compose.ui)
+            }
+        }
+        val iosSimulatorArm64Main by getting {
+            dependencies {
+                implementation(compose.material3)
+                implementation(compose.runtime)
+                implementation(compose.foundation)
+                implementation(compose.ui)
+            }
+        }
+
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
@@ -42,7 +67,7 @@ kotlin {
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodel)
-            implementation(libs.androidx.lifecycle.runtimeCompose)
+            implementation(libs.androidx.lifecycle.runtime.compose)
             implementation(libs.messagebar.kmp)
 
             //Firebase
@@ -53,7 +78,7 @@ kotlin {
             implementation(project(":shared"))
         }
         commonTest.dependencies {
-            implementation(libs.kotlin.test)
+            //implementation(libs.kotlin.test)
         }
     }
 }

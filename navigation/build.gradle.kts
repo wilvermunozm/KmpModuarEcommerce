@@ -42,14 +42,14 @@ kotlin {
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodel)
-            implementation(libs.androidx.lifecycle.runtimeCompose)
+            implementation(libs.androidx.lifecycle.runtime.compose)
             implementation(libs.messagebar.kmp)
 
             //modules
             implementation(project(":feature:auth"))
         }
         commonTest.dependencies {
-            implementation(libs.kotlin.test)
+            //implementation(libs.kotlin.test)
         }
     }
 }
