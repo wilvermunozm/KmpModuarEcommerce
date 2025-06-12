@@ -30,6 +30,9 @@ import com.nutrisport.shared.SurfaceError
 import com.nutrisport.shared.TextPrimary
 import com.nutrisport.shared.TextSecondary
 import com.nutrisport.shared.TextWhite
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import org.koin.compose.viewmodel.koinViewModel
 import rememberMessageBarState
 
 @Composable
@@ -37,7 +40,7 @@ fun AuthScreen(
     //navigateToHome: () -> Unit
 ) {
     val scope = rememberCoroutineScope()
-    //val viewModel = koinViewModel<AuthViewModel>()
+    val viewModel = koinViewModel<AuthViewModel>()
     val messageBarState = rememberMessageBarState()
     var loadingState by remember { mutableStateOf(false) }
 
@@ -88,18 +91,17 @@ fun AuthScreen(
                     linkAccount = false,
                     onResult = { result ->
                         result.onSuccess { user ->
-                            messageBarState.addSuccess("Authentication successful!")
-//                            viewModel.createCustomer(
-//                                user = user,
-//                                onSuccess = {
-//                                    scope.launch {
-//                                        messageBarState.addSuccess("Authentication successful!")
-//                                        delay(2000)
-//                                        navigateToHome()
-//                                    }
-//                                },
-//                                onError = { message -> messageBarState.addError(message) }
-//                            )
+                            viewModel.createCustomer(
+                                user = user,
+                                onSuccess = {
+                                    scope.launch {
+                                        messageBarState.addSuccess("Authentication successful!")
+                                        delay(2000)
+                                        //navigateToHome()
+                                    }
+                                },
+                                onError = { message -> messageBarState.addError(message) }
+                            )
                             loadingState = false
                         }.onFailure { error ->
                             if (error.message?.contains("A network error") == true) {
@@ -125,3 +127,4 @@ fun AuthScreen(
         }
     }
 }
+
