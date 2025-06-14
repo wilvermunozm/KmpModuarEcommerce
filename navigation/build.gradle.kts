@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.serialization)
 }
 
 kotlin {
@@ -45,8 +46,12 @@ kotlin {
             implementation(libs.androidx.lifecycle.runtime.compose)
             implementation(libs.messagebar.kmp)
 
+            implementation(libs.compose.navigation)
+            implementation(libs.kotlinx.serialization)
+
             //modules
             implementation(project(":feature:auth"))
+            implementation(project(":feature:home"))
         }
         commonTest.dependencies {
             //implementation(libs.kotlin.test)

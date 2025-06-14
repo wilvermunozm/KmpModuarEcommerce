@@ -37,7 +37,7 @@ import rememberMessageBarState
 
 @Composable
 fun AuthScreen(
-    //navigateToHome: () -> Unit
+    navigateToHome: () -> Unit
 ) {
     val scope = rememberCoroutineScope()
     val viewModel = koinViewModel<AuthViewModel>()
@@ -97,7 +97,7 @@ fun AuthScreen(
                                     scope.launch {
                                         messageBarState.addSuccess("Authentication successful!")
                                         delay(2000)
-                                        //navigateToHome()
+                                        navigateToHome()
                                     }
                                 },
                                 onError = { message -> messageBarState.addError(message) }

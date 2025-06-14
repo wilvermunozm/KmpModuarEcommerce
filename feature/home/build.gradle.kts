@@ -3,10 +3,9 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.androidLibrary)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
-    alias(libs.plugins.google.services)
 }
 
 kotlin {
@@ -23,19 +22,13 @@ kotlin {
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = "ComposeApp"
+            baseName = "home"
             isStatic = true
         }
     }
 
     sourceSets {
 
-        androidMain.dependencies {
-            implementation(compose.preview)
-            implementation(libs.androidx.activity.compose)
-            implementation(libs.splash.screen)
-            implementation(libs.koin.android)
-        }
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -45,19 +38,15 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime.compose)
-            implementation(libs.auth.kmp)
-            implementation(libs.firebase.app)
 
-            //Koin
+            //Auth
             implementation(libs.koin.compose)
+            implementation(libs.koin.compose.viewmodel)
 
-            //Modules
-            implementation(project(":navigation"))
-            implementation(project(path = ":shared"))
-            implementation(project(path = ":di"))
-            implementation(project(path = ":data"))
+            //modules
+            implementation(project(":shared"))
+            implementation(project(":data"))
         }
-
         commonTest.dependencies {
             //implementation(libs.kotlin.test)
         }
@@ -65,37 +54,17 @@ kotlin {
 }
 
 android {
-    namespace = "org.wil.nutrisport"
+    namespace = "org.wil.home"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "org.wil.nutrisport"
         minSdk = libs.versions.android.minSdk.get().toInt()
-        targetSdk = libs.versions.android.targetSdk.get().toInt()
-        versionCode = 1
-        versionName = "1.0"
-    }
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
-        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-
     lint {
         targetSdk = libs.versions.android.targetSdk.get().toInt()
     }
 }
-
-dependencies {
-    debugImplementation(compose.uiTooling)
-}
-
