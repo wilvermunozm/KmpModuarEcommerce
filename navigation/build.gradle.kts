@@ -50,6 +50,7 @@ kotlin {
             implementation(libs.kotlinx.serialization)
 
             //modules
+            implementation(project(":shared"))
             implementation(project(":feature:auth"))
             implementation(project(":feature:home"))
         }

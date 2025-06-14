@@ -43,6 +43,8 @@ kotlin {
             implementation(libs.koin.compose)
             implementation(libs.koin.compose.viewmodel)
 
+            implementation(libs.compose.navigation)
+
             //modules
             implementation(project(":shared"))
             implementation(project(":data"))
