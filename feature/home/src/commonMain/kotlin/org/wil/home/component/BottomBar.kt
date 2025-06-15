@@ -29,8 +29,9 @@ import org.wil.home.domain.BottomBarDestination
 @Composable
 fun BottomBar(
     modifier: Modifier = Modifier,
-    selected: Boolean,
-    onSelect: (BottomBarDestination) -> Unit
+    //customer: RequestState<Customer>,
+    selected: BottomBarDestination,
+    onSelect: (BottomBarDestination) -> Unit,
 ) {
     Row(
         modifier = modifier
@@ -46,7 +47,7 @@ fun BottomBar(
     ) {
         BottomBarDestination.entries.forEach { destination ->
             val animatedTint by animateColorAsState(
-                targetValue = if (selected) IconSecondary else IconPrimary
+                targetValue = if (selected == destination) IconSecondary else IconPrimary
             )
             Box(contentAlignment = Alignment.TopEnd) {
                 Icon(
@@ -67,7 +68,7 @@ fun BottomBar(
                                 .clip(CircleShape)
                                 .background(IconSecondary)
                         )
-                        // }
+                        //}
                     }
                 }
             }
