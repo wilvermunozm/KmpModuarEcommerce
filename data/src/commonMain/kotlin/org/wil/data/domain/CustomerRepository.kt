@@ -1,5 +1,6 @@
 package org.wil.data.domain
 
+import com.nutrisport.shared.util.RequestState
 import dev.gitlive.firebase.auth.FirebaseUser
 
 interface CustomerRepository {
@@ -10,4 +11,6 @@ interface CustomerRepository {
     )
 
     fun getCurrentUserId(): String?
+
+    suspend fun signOut(): RequestState<Unit>
 }

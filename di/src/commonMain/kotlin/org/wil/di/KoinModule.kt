@@ -8,10 +8,12 @@ import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.module
 import org.wil.data.domain.CustomerRepository
 import org.wil.data.domain.CustomerRepositoryImpl
+import org.wil.home.HomeGraphViewModel
 
 val sharedModule = module {
     single<CustomerRepository> { CustomerRepositoryImpl() }
     viewModelOf(::AuthViewModel)
+    viewModelOf(::HomeGraphViewModel)
 //    single<AdminRepository> { AdminRepositoryImpl() }
 //    single<ProductRepository> { ProductRepositoryImpl() }
 //    single<OrderRepository> { OrderRepositoryImpl(get()) }

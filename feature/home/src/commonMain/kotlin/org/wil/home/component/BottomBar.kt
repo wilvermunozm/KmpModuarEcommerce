@@ -20,11 +20,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
+import com.nutrisport.home.domain.BottomBarDestination
 import com.nutrisport.shared.IconPrimary
 import com.nutrisport.shared.IconSecondary
 import com.nutrisport.shared.SurfaceLighter
 import org.jetbrains.compose.resources.painterResource
-import org.wil.home.domain.BottomBarDestination
 
 @Composable
 fun BottomBar(

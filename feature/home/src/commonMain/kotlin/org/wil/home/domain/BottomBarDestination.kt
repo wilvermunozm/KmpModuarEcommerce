@@ -1,4 +1,4 @@
-package org.wil.home.domain
+package com.nutrisport.home.domain
 
 import com.nutrisport.shared.Resources
 import com.nutrisport.shared.navigation.Screen

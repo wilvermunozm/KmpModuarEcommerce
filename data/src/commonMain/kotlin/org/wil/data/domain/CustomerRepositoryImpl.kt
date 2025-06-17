@@ -1,6 +1,7 @@
 package org.wil.data.domain
 
 import com.nutrisport.shared.domain.Customer
+import com.nutrisport.shared.util.RequestState
 import dev.gitlive.firebase.Firebase
 import dev.gitlive.firebase.auth.FirebaseUser
 import dev.gitlive.firebase.auth.auth
@@ -9,6 +10,15 @@ import dev.gitlive.firebase.firestore.firestore
 class CustomerRepositoryImpl : CustomerRepository {
     override fun getCurrentUserId(): String? {
         return Firebase.auth.currentUser?.uid
+    }
+
+    override suspend fun signOut(): RequestState<Unit> {
+        return try {
+            Firebase.auth.signOut()
+            RequestState.Success(data = Unit)
+        } catch (e: Exception) {
+            RequestState.Error("Error while signing out: ${e.message}")
+        }
     }
 
     override suspend fun createCustomer(
