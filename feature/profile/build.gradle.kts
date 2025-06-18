@@ -6,7 +6,6 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
-    alias(libs.plugins.serialization)
 }
 
 kotlin {
@@ -23,18 +22,13 @@ kotlin {
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = "navigation"
+            baseName = "profile"
             isStatic = true
         }
     }
 
     sourceSets {
 
-        androidMain.dependencies {
-            implementation(compose.preview)
-            implementation(libs.androidx.activity.compose)
-            implementation(libs.splash.screen)
-        }
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -46,14 +40,17 @@ kotlin {
             implementation(libs.androidx.lifecycle.runtime.compose)
             implementation(libs.messagebar.kmp)
 
-            implementation(libs.compose.navigation)
-            implementation(libs.kotlinx.serialization)
+            //Firebase
+            implementation(libs.auth.kmp)
+            implementation(libs.auth.firebase.kmp)
+
+            //Auth
+            implementation(libs.koin.compose)
+            implementation(libs.koin.compose.viewmodel)
 
             //modules
             implementation(project(":shared"))
-            implementation(project(":feature:auth"))
-            implementation(project(":feature:home"))
-            implementation(project(":feature:profile"))
+            implementation(project(":data"))
         }
         commonTest.dependencies {
             //implementation(libs.kotlin.test)
@@ -62,7 +59,7 @@ kotlin {
 }
 
 android {
-    namespace = "org.wil.navigation"
+    namespace = "org.wil.profile"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {

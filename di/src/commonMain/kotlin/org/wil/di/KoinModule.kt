@@ -9,11 +9,13 @@ import org.koin.dsl.module
 import org.wil.data.domain.CustomerRepository
 import org.wil.data.domain.CustomerRepositoryImpl
 import org.wil.home.HomeGraphViewModel
+import org.wil.nutrisport.ProfileViewModel
 
 val sharedModule = module {
     single<CustomerRepository> { CustomerRepositoryImpl() }
     viewModelOf(::AuthViewModel)
     viewModelOf(::HomeGraphViewModel)
+    viewModelOf(::ProfileViewModel)
 //    single<AdminRepository> { AdminRepositoryImpl() }
 //    single<ProductRepository> { ProductRepositoryImpl() }
 //    single<OrderRepository> { OrderRepositoryImpl(get()) }
@@ -21,7 +23,6 @@ val sharedModule = module {
 //    single<PaypalApi> { PaypalApi() }
 
 //    viewModelOf(::HomeGraphViewModel)
-//    viewModelOf(::ProfileViewModel)
 //    viewModelOf(::ManageProductViewModel)
 //    viewModelOf(::AdminPanelViewModel)
 //    viewModelOf(::ProductsOverviewViewModel)

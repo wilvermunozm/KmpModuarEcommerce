@@ -109,7 +109,7 @@ fun HomeGraphScreen(
 
     val viewModel = koinViewModel<HomeGraphViewModel>()
     // val customer by viewModel.customer.collectAsState()
-    //val totalAmount by viewModel.totalAmountFlow.collectAsState(RequestState.Loading)
+    // val totalAmount by viewModel.totalAmountFlow.collectAsState(RequestState.Loading)
     val messageBarState = rememberMessageBarState()
 
     Box(

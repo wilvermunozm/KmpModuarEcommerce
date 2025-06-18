@@ -7,6 +7,7 @@ import androidx.navigation.compose.rememberNavController
 import com.company.auth.AuthScreen
 import com.nutrisport.shared.navigation.Screen
 import org.wil.home.HomeGraphScreen
+import org.wil.nutrisport.ProfileScreen
 
 @Composable
 fun SetupNavGraph(startDestination: Screen = Screen.Auth) {
@@ -31,11 +32,22 @@ fun SetupNavGraph(startDestination: Screen = Screen.Auth) {
                         popUpTo<Screen.HomeGraph> { inclusive = true }
                     }
                 },
-                navigateToProfile = {},
+                navigateToProfile = {
+                    navController.navigate(Screen.Profile) {
+                        popUpTo<Screen.HomeGraph> { inclusive = true }
+                    }
+                },
                 navigateToAdminPanel = {},
                 navigateToDetails = {},
                 navigateToCategorySearch = {},
                 navigateToCheckout = {}
+            )
+        }
+        composable<Screen.Profile> {
+            ProfileScreen(
+                navigateBack = {
+                    navController.navigateUp()
+                }
             )
         }
     }
