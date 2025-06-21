@@ -1,4 +1,4 @@
-package org.wil.data.domain
+package org.wil.data
 
 import com.nutrisport.shared.domain.Product
 import com.nutrisport.shared.util.RequestState
@@ -6,9 +6,15 @@ import dev.gitlive.firebase.Firebase
 import dev.gitlive.firebase.auth.auth
 import dev.gitlive.firebase.firestore.Direction
 import dev.gitlive.firebase.firestore.firestore
+import dev.gitlive.firebase.storage.File
+import dev.gitlive.firebase.storage.storage
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.channelFlow
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.withTimeout
+import org.wil.data.domain.AdminRepository
+import kotlin.uuid.ExperimentalUuidApi
+import kotlin.uuid.Uuid
 
 class AdminRepositoryImpl : AdminRepository {
     override fun getCurrentUserId() = Firebase.auth.currentUser?.uid
@@ -34,21 +40,21 @@ class AdminRepositoryImpl : AdminRepository {
         }
     }
 
-//    @OptIn(ExperimentalUuidApi::class)
-//    override suspend fun uploadImageToStorage(file: File): String? {
-//        return if (getCurrentUserId() != null) {
-//            val storage = Firebase.storage.reference
-//            val imagePath = storage.child(path = "images/${Uuid.random().toHexString()}")
-//            try {
-//                withTimeout(timeMillis = 20000L) {
-//                    imagePath.putFile(file)
-//                    imagePath.getDownloadUrl()
-//                }
-//            } catch (e: Exception) {
-//                null
-//            }
-//        } else null
-//    }
+    @OptIn(ExperimentalUuidApi::class)
+    override suspend fun uploadImageToStorage(file: File): String? {
+        return if (getCurrentUserId() != null) {
+            val storage = Firebase.storage.reference
+            val imagePath = storage.child(path = "images/${Uuid.random().toHexString()}")
+            try {
+                withTimeout(timeMillis = 20000L) {
+                    imagePath.putFile(file)
+                    imagePath.getDownloadUrl()
+                }
+            } catch (e: Exception) {
+                null
+            }
+        } else null
+    }
 
     override suspend fun deleteImageFromStorage(
         downloadUrl: String,

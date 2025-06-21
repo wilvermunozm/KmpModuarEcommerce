@@ -41,6 +41,11 @@ kotlin {
 
             implementation(libs.kotlinx.serialization)
 
+            implementation(libs.coil3)
+            implementation(libs.coil3.compose)
+            implementation(libs.coil3.compose.core)
+            implementation(libs.coil3.network.ktor)
+
         }
         commonTest.dependencies {
             //implementation(libs.kotlin.test)

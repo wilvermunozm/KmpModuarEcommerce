@@ -1,4 +1,4 @@
-package org.wil.data.domain
+package org.wil.data
 
 import com.nutrisport.shared.domain.Customer
 import com.nutrisport.shared.util.RequestState
@@ -9,6 +9,7 @@ import dev.gitlive.firebase.firestore.firestore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.channelFlow
 import kotlinx.coroutines.flow.collectLatest
+import org.wil.data.domain.CustomerRepository
 
 class CustomerRepositoryImpl : CustomerRepository {
     override fun getCurrentUserId(): String? {

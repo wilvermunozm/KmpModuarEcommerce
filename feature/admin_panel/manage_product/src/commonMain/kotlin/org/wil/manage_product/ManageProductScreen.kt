@@ -65,11 +65,11 @@ import com.nutrisport.shared.TextPrimary
 import com.nutrisport.shared.TextSecondary
 import com.nutrisport.shared.TextWhite
 import com.nutrisport.shared.component.AlertTextField
+import com.nutrisport.shared.component.CategoriesDialog
 import com.nutrisport.shared.component.CustomTextField
 import com.nutrisport.shared.component.ErrorCard
 import com.nutrisport.shared.component.LoadingCard
 import com.nutrisport.shared.component.PrimaryButton
-import com.nutrisport.shared.component.dialog.CategoriesDialog
 import com.nutrisport.shared.domain.ProductCategory
 import com.nutrisport.shared.util.DisplayResult
 import com.nutrisport.shared.util.RequestState
