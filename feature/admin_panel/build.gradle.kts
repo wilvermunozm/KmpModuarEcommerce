@@ -22,12 +22,13 @@ kotlin {
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = "di"
+            baseName = "manage_product"
             isStatic = true
         }
     }
 
     sourceSets {
+
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -37,23 +38,28 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime.compose)
+            implementation(libs.messagebar.kmp)
 
-            implementation(libs.koin.core)
+            //Firebase
+            implementation(libs.auth.kmp)
+            implementation(libs.auth.firebase.kmp)
+
+            //Auth
             implementation(libs.koin.compose)
             implementation(libs.koin.compose.viewmodel)
 
-            implementation(project(":feature:auth"))
-            implementation(project(":feature:home"))
-            implementation(project(":feature:profile"))
-            implementation(project(":feature:admin_panel"))
+            //modules
             implementation(project(":shared"))
             implementation(project(":data"))
+        }
+        commonTest.dependencies {
+            //implementation(libs.kotlin.test)
         }
     }
 }
 
 android {
-    namespace = "org.wil.di"
+    namespace = "org.wil.manage_product"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {

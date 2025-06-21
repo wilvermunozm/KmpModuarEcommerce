@@ -6,6 +6,7 @@ import org.koin.core.KoinApplication
 import org.koin.core.context.startKoin
 import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.module
+import org.wil.admin_panel.AdminPanelViewModel
 import org.wil.data.domain.CustomerRepository
 import org.wil.data.domain.CustomerRepositoryImpl
 import org.wil.home.HomeGraphViewModel
@@ -16,6 +17,7 @@ val sharedModule = module {
     viewModelOf(::AuthViewModel)
     viewModelOf(::HomeGraphViewModel)
     viewModelOf(::ProfileViewModel)
+    viewModelOf(::AdminPanelViewModel)
 //    single<AdminRepository> { AdminRepositoryImpl() }
 //    single<ProductRepository> { ProductRepositoryImpl() }
 //    single<OrderRepository> { OrderRepositoryImpl(get()) }
@@ -24,7 +26,6 @@ val sharedModule = module {
 
 //    viewModelOf(::HomeGraphViewModel)
 //    viewModelOf(::ManageProductViewModel)
-//    viewModelOf(::AdminPanelViewModel)
 //    viewModelOf(::ProductsOverviewViewModel)
 //    viewModelOf(::DetailsViewModel)
 //    viewModelOf(::CartViewModel)
