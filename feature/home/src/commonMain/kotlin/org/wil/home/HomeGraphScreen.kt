@@ -63,6 +63,7 @@ import org.jetbrains.compose.resources.painterResource
 import org.koin.compose.viewmodel.koinViewModel
 import org.wil.home.component.BottomBar
 import org.wil.home.component.CustomDrawer
+import org.wil.products_overview.ProductsOverviewScreen
 import rememberMessageBarState
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -165,23 +166,23 @@ fun HomeGraphScreen(
                             AnimatedVisibility(
                                 visible = selectedDestination == BottomBarDestination.Cart
                             ) {
-//                                if (customer.isSuccess() && customer.getSuccessData().cart.isNotEmpty()) {
-//                                    IconButton(onClick = {
-//                                        if (totalAmount.isSuccess()) {
-//                                            navigateToCheckout(
-//                                                totalAmount.getSuccessData().toString()
-//                                            )
-//                                        } else if (totalAmount.isError()) {
-//                                            messageBarState.addError("Error while calculating a total amount: ${totalAmount.getErrorMessage()}")
-//                                        }
-//                                    }) {
-//                                        Icon(
-//                                            painter = painterResource(Resources.Icon.RightArrow),
-//                                            contentDescription = "Right icon",
-//                                            tint = IconPrimary
-//                                        )
-//                                    }
-//                                }
+                                if (customer.isSuccess() && customer.getSuccessData().cart.isNotEmpty()) {
+                                    IconButton(onClick = {
+                                        if (totalAmount.isSuccess()) {
+                                            navigateToCheckout(
+                                                totalAmount.getSuccessData().toString()
+                                            )
+                                        } else if (totalAmount.isError()) {
+                                            messageBarState.addError("Error while calculating a total amount: ${totalAmount.getErrorMessage()}")
+                                        }
+                                    }) {
+                                        Icon(
+                                            painter = painterResource(Resources.Icon.RightArrow),
+                                            contentDescription = "Right icon",
+                                            tint = IconPrimary
+                                        )
+                                    }
+                                }
                             }
                         },
                         navigationIcon = {
@@ -239,9 +240,9 @@ fun HomeGraphScreen(
                             startDestination = Screen.ProductsOverview
                         ) {
                             composable<Screen.ProductsOverview> {
-//                                ProductsOverviewScreen(
-//                                    navigateToDetails = navigateToDetails
-//                                )
+                                ProductsOverviewScreen(
+                                    navigateToDetails = navigateToDetails
+                                )
                             }
                             composable<Screen.Cart> {
 //                                CartScreen()
@@ -258,7 +259,7 @@ fun HomeGraphScreen(
                                 .padding(all = 12.dp)
                         ) {
                             BottomBar(
-                                // customer = customer,
+                                customer = customer,
                                 selected = selectedDestination,
                                 onSelect = { destination ->
                                     navController.navigate(destination.screen) {

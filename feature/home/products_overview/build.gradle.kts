@@ -22,7 +22,7 @@ kotlin {
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = "home"
+            baseName = "products_overview"
             isStatic = true
         }
     }
@@ -39,18 +39,16 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime.compose)
 
-            //Auth
             implementation(libs.koin.compose)
             implementation(libs.koin.compose.viewmodel)
 
-            implementation(libs.messagebar.kmp)
+            implementation(libs.coil3)
+            implementation(libs.coil3.compose)
+            implementation(libs.coil3.compose.core)
+            implementation(libs.coil3.network.ktor)
 
-            implementation(libs.compose.navigation)
-
-            //modules
-            implementation(project(":shared"))
-            implementation(project(":data"))
-            implementation(project(path = ":feature:home:products_overview"))
+            implementation(project(path = ":shared"))
+            implementation(project(path = ":data"))
         }
         commonTest.dependencies {
             //implementation(libs.kotlin.test)
@@ -59,7 +57,7 @@ kotlin {
 }
 
 android {
-    namespace = "org.wil.home"
+    namespace = "org.wil.products_overview"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {

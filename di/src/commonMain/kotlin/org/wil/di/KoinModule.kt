@@ -14,26 +14,29 @@ import org.wil.data.ProductRepositoryImpl
 import org.wil.data.domain.AdminRepository
 import org.wil.data.domain.CustomerRepository
 import org.wil.data.domain.ProductRepository
+import org.wil.details.DetailsViewModel
 import org.wil.home.HomeGraphViewModel
 import org.wil.manage_product.ManageProductViewModel
 import org.wil.nutrisport.ProfileViewModel
+import org.wil.products_overview.ProductsOverviewViewModel
 
 val sharedModule = module {
     single<CustomerRepository> { CustomerRepositoryImpl() }
+    single<AdminRepository> { AdminRepositoryImpl() }
+    single<ProductRepository> { ProductRepositoryImpl() }
+
     viewModelOf(::AuthViewModel)
     viewModelOf(::HomeGraphViewModel)
     viewModelOf(::ProfileViewModel)
     viewModelOf(::AdminPanelViewModel)
     viewModelOf(::ManageProductViewModel)
+    viewModelOf(::ProductsOverviewViewModel)
+    viewModelOf(::DetailsViewModel)
 
-    single<AdminRepository> { AdminRepositoryImpl() }
-    single<ProductRepository> { ProductRepositoryImpl() }
 //    single<OrderRepository> { OrderRepositoryImpl(get()) }
 //    single<IntentHandler> { IntentHandler() }
 //    single<PaypalApi> { PaypalApi() }
 
-//    viewModelOf(::ProductsOverviewViewModel)
-//    viewModelOf(::DetailsViewModel)
 //    viewModelOf(::CartViewModel)
 //    viewModelOf(::CategorySearchViewModel)
 //    viewModelOf(::CheckoutViewModel)

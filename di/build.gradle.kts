@@ -45,8 +45,10 @@ kotlin {
             implementation(project(":feature:auth"))
             implementation(project(":feature:home"))
             implementation(project(":feature:profile"))
+            implementation(project(":feature:details"))
             implementation(project(":feature:admin_panel"))
             implementation(project(":feature:admin_panel:manage_product"))
+            implementation(project(":feature:home:products_overview"))
             implementation(project(":shared"))
             implementation(project(":data"))
         }
