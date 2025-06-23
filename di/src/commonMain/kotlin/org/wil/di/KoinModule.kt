@@ -9,6 +9,7 @@ import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.module
 import org.wil.admin_panel.AdminPanelViewModel
 import org.wil.cart.CartViewModel
+import org.wil.category_search.CategorySearchViewModel
 import org.wil.data.AdminRepositoryImpl
 import org.wil.data.CustomerRepositoryImpl
 import org.wil.data.ProductRepositoryImpl
@@ -34,12 +35,12 @@ val sharedModule = module {
     viewModelOf(::ProductsOverviewViewModel)
     viewModelOf(::DetailsViewModel)
     viewModelOf(::CartViewModel)
+    viewModelOf(::CategorySearchViewModel)
 
 //    single<OrderRepository> { OrderRepositoryImpl(get()) }
 //    single<IntentHandler> { IntentHandler() }
 //    single<PaypalApi> { PaypalApi() }
 
-//    viewModelOf(::CategorySearchViewModel)
 //    viewModelOf(::CheckoutViewModel)
 //    viewModelOf(::PaymentViewModel)
 }

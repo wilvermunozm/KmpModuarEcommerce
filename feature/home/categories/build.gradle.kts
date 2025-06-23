@@ -1,4 +1,3 @@
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -10,7 +9,6 @@ plugins {
 
 kotlin {
     androidTarget {
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_11)
         }
@@ -22,13 +20,12 @@ kotlin {
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = "home"
+            baseName = "categories"
             isStatic = true
         }
     }
 
     sourceSets {
-
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -39,39 +36,22 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime.compose)
 
-            //Auth
-            implementation(libs.koin.compose)
-            implementation(libs.koin.compose.viewmodel)
-
-            implementation(libs.messagebar.kmp)
-
-            implementation(libs.compose.navigation)
-
-            //modules
-            implementation(project(":shared"))
-            implementation(project(":data"))
-            implementation(project(path = ":feature:home:products_overview"))
-            implementation(project(path = ":feature:home:cart"))
-            implementation(project(path = ":feature:home:categories"))
-        }
-        commonTest.dependencies {
-            //implementation(libs.kotlin.test)
+            implementation(project(path = ":shared"))
+            implementation(project(path = ":data"))
         }
     }
 }
 
 android {
-    namespace = "org.wil.home"
+    namespace = "com.nutrisport.categories"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
         minSdk = libs.versions.android.minSdk.get().toInt()
+        targetSdk = libs.versions.android.targetSdk.get().toInt()
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
-    }
-    lint {
-        targetSdk = libs.versions.android.targetSdk.get().toInt()
     }
 }

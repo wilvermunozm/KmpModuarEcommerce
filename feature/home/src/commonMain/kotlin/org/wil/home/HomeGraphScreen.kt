@@ -62,6 +62,7 @@ import com.nutrisport.shared.util.getScreenWidth
 import org.jetbrains.compose.resources.painterResource
 import org.koin.compose.viewmodel.koinViewModel
 import org.wil.cart.CartScreen
+import org.wil.categories.CategoriesScreen
 import org.wil.home.component.BottomBar
 import org.wil.home.component.CustomDrawer
 import org.wil.products_overview.ProductsOverviewScreen
@@ -249,9 +250,9 @@ fun HomeGraphScreen(
                                 CartScreen()
                             }
                             composable<Screen.Categories> {
-//                                CategoriesScreen(
-//                                    navigateToCategorySearch = navigateToCategorySearch
-//                                )
+                                CategoriesScreen(
+                                    navigateToCategorySearch = navigateToCategorySearch
+                                )
                             }
                         }
                         Spacer(modifier = Modifier.height(12.dp))

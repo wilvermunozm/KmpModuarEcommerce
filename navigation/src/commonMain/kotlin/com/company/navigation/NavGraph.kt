@@ -6,8 +6,10 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.company.auth.AuthScreen
+import com.nutrisport.shared.domain.ProductCategory
 import com.nutrisport.shared.navigation.Screen
 import org.wil.admin_panel.AdminPanelScreen
+import org.wil.category_search.CategorySearchScreen
 import org.wil.details.DetailsScreen
 import org.wil.home.HomeGraphScreen
 import org.wil.manage_product.ManageProductScreen
@@ -108,18 +110,18 @@ fun SetupNavGraph(startDestination: Screen = Screen.Auth) {
                 }
             )
         }
-//        composable<Screen.CategorySearch> {
-//            val category = ProductCategory.valueOf(it.toRoute<Screen.CategorySearch>().category)
-//            CategorySearchScreen(
-//                category = category,
-//                navigateToDetails = { id ->
-//                    navController.navigate(Screen.Details(id))
-//                },
-//                navigateBack = {
-//                    navController.navigateUp()
-//                }
-//            )
-//        }
+        composable<Screen.CategorySearch> {
+            val category = ProductCategory.valueOf(it.toRoute<Screen.CategorySearch>().category)
+            CategorySearchScreen(
+                category = category,
+                navigateToDetails = { id ->
+                    navController.navigate(Screen.Details(id))
+                },
+                navigateBack = {
+                    navController.navigateUp()
+                }
+            )
+        }
 //        composable<Screen.Checkout> {
 //            val totalAmount = it.toRoute<Screen.Checkout>().totalAmount
 //            CheckoutScreen(
