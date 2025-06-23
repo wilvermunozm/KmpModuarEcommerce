@@ -61,6 +61,7 @@ import com.nutrisport.shared.util.RequestState
 import com.nutrisport.shared.util.getScreenWidth
 import org.jetbrains.compose.resources.painterResource
 import org.koin.compose.viewmodel.koinViewModel
+import org.wil.cart.CartScreen
 import org.wil.home.component.BottomBar
 import org.wil.home.component.CustomDrawer
 import org.wil.products_overview.ProductsOverviewScreen
@@ -245,7 +246,7 @@ fun HomeGraphScreen(
                                 )
                             }
                             composable<Screen.Cart> {
-//                                CartScreen()
+                                CartScreen()
                             }
                             composable<Screen.Categories> {
 //                                CategoriesScreen(

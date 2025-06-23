@@ -1,4 +1,3 @@
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -10,7 +9,6 @@ plugins {
 
 kotlin {
     androidTarget {
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_11)
         }
@@ -22,12 +20,18 @@ kotlin {
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = "di"
+            baseName = "cart"
             isStatic = true
         }
     }
 
     sourceSets {
+        androidMain.dependencies {
+            implementation(libs.ktor.android.client)
+        }
+        iosMain.dependencies {
+            implementation(libs.ktor.darwin.client)
+        }
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -38,36 +42,32 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime.compose)
 
-            implementation(libs.koin.core)
             implementation(libs.koin.compose)
             implementation(libs.koin.compose.viewmodel)
 
-            implementation(project(":feature:auth"))
-            implementation(project(":feature:home"))
-            implementation(project(":feature:home:cart"))
-            implementation(project(":feature:profile"))
-            implementation(project(":feature:details"))
-            implementation(project(":feature:admin_panel"))
-            implementation(project(":feature:admin_panel:manage_product"))
-            implementation(project(":feature:home:products_overview"))
-            implementation(project(":shared"))
-            implementation(project(":data"))
+            implementation(libs.messagebar.kmp)
+
+            implementation(libs.coil3)
+            implementation(libs.coil3.compose)
+            implementation(libs.coil3.compose.core)
+            implementation(libs.coil3.network.ktor)
+
+            implementation(project(path = ":shared"))
+            implementation(project(path = ":data"))
         }
     }
 }
 
 android {
-    namespace = "org.wil.di"
+    namespace = "com.nutrisport.cart"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
         minSdk = libs.versions.android.minSdk.get().toInt()
+        targetSdk = libs.versions.android.targetSdk.get().toInt()
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
-    }
-    lint {
-        targetSdk = libs.versions.android.targetSdk.get().toInt()
     }
 }
