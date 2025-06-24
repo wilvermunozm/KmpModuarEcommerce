@@ -10,11 +10,15 @@ import org.koin.dsl.module
 import org.wil.admin_panel.AdminPanelViewModel
 import org.wil.cart.CartViewModel
 import org.wil.category_search.CategorySearchViewModel
+import org.wil.checkout.CheckoutViewModel
+import org.wil.checkout.domain.PaypalApi
 import org.wil.data.AdminRepositoryImpl
 import org.wil.data.CustomerRepositoryImpl
+import org.wil.data.OrderRepositoryImpl
 import org.wil.data.ProductRepositoryImpl
 import org.wil.data.domain.AdminRepository
 import org.wil.data.domain.CustomerRepository
+import org.wil.data.domain.OrderRepository
 import org.wil.data.domain.ProductRepository
 import org.wil.details.DetailsViewModel
 import org.wil.home.HomeGraphViewModel
@@ -26,6 +30,7 @@ val sharedModule = module {
     single<CustomerRepository> { CustomerRepositoryImpl() }
     single<AdminRepository> { AdminRepositoryImpl() }
     single<ProductRepository> { ProductRepositoryImpl() }
+    single<OrderRepository> { OrderRepositoryImpl(get()) }
 
     viewModelOf(::AuthViewModel)
     viewModelOf(::HomeGraphViewModel)
@@ -36,12 +41,12 @@ val sharedModule = module {
     viewModelOf(::DetailsViewModel)
     viewModelOf(::CartViewModel)
     viewModelOf(::CategorySearchViewModel)
+    viewModelOf(::CheckoutViewModel)
+    single<PaypalApi> { PaypalApi() }
 
-//    single<OrderRepository> { OrderRepositoryImpl(get()) }
 //    single<IntentHandler> { IntentHandler() }
-//    single<PaypalApi> { PaypalApi() }
 
-//    viewModelOf(::CheckoutViewModel)
+
 //    viewModelOf(::PaymentViewModel)
 }
 

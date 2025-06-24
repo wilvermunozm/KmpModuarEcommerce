@@ -36,6 +36,7 @@ include(":feature:details")
 include(":feature:details")
 include(":feature:home:cart")
 include(":feature:home:cart")
+include(":feature:home:cart:checkout")
 include(":feature:home:categories")
 include(":feature:home:categories:category_search")
 

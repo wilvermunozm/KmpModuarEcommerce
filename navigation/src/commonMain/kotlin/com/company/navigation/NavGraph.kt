@@ -10,6 +10,7 @@ import com.nutrisport.shared.domain.ProductCategory
 import com.nutrisport.shared.navigation.Screen
 import org.wil.admin_panel.AdminPanelScreen
 import org.wil.category_search.CategorySearchScreen
+import org.wil.checkout.CheckoutScreen
 import org.wil.details.DetailsScreen
 import org.wil.home.HomeGraphScreen
 import org.wil.manage_product.ManageProductScreen
@@ -122,18 +123,18 @@ fun SetupNavGraph(startDestination: Screen = Screen.Auth) {
                 }
             )
         }
-//        composable<Screen.Checkout> {
-//            val totalAmount = it.toRoute<Screen.Checkout>().totalAmount
-//            CheckoutScreen(
-//                totalAmount = totalAmount.toDoubleOrNull() ?: 0.0,
-//                navigateBack = {
-//                    navController.navigateUp()
-//                },
-//                navigateToPaymentCompleted = { isSuccess, error ->
-//                    navController.navigate(Screen.PaymentCompleted(isSuccess, error))
-//                }
-//            )
-//        }
+        composable<Screen.Checkout> {
+            val totalAmount = it.toRoute<Screen.Checkout>().totalAmount
+            CheckoutScreen(
+                totalAmount = totalAmount.toDoubleOrNull() ?: 0.0,
+                navigateBack = {
+                    navController.navigateUp()
+                },
+                navigateToPaymentCompleted = { isSuccess, error ->
+                    navController.navigate(Screen.PaymentCompleted(isSuccess, error))
+                }
+            )
+        }
 //        composable<Screen.PaymentCompleted> {
 //            PaymentCompleted(
 //                navigateBack = {
