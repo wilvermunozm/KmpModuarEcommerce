@@ -15,6 +15,7 @@ import org.wil.details.DetailsScreen
 import org.wil.home.HomeGraphScreen
 import org.wil.manage_product.ManageProductScreen
 import org.wil.nutrisport.ProfileScreen
+import org.wil.payment_completed.PaymentCompleted
 
 @Composable
 fun SetupNavGraph(startDestination: Screen = Screen.Auth) {
@@ -135,15 +136,16 @@ fun SetupNavGraph(startDestination: Screen = Screen.Auth) {
                 }
             )
         }
-//        composable<Screen.PaymentCompleted> {
-//            PaymentCompleted(
-//                navigateBack = {
-//                    navController.navigate(Screen.HomeGraph) {
-//                        launchSingleTop = true
-//                        // Clear backstack completely
-//                        popUpTo(0) { inclusive = true }
-//                    }
-//                }
-//            )
+        composable<Screen.PaymentCompleted> {
+            PaymentCompleted(
+                navigateBack = {
+                    navController.navigate(Screen.HomeGraph) {
+                        launchSingleTop = true
+                        // Clear backstack completely
+                        popUpTo(0) { inclusive = true }
+                    }
+                }
+            )
+        }
     }
 }

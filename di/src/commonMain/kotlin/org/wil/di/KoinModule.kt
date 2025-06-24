@@ -24,6 +24,7 @@ import org.wil.details.DetailsViewModel
 import org.wil.home.HomeGraphViewModel
 import org.wil.manage_product.ManageProductViewModel
 import org.wil.nutrisport.ProfileViewModel
+import org.wil.payment_completed.PaymentViewModel
 import org.wil.products_overview.ProductsOverviewViewModel
 
 val sharedModule = module {
@@ -31,6 +32,7 @@ val sharedModule = module {
     single<AdminRepository> { AdminRepositoryImpl() }
     single<ProductRepository> { ProductRepositoryImpl() }
     single<OrderRepository> { OrderRepositoryImpl(get()) }
+    single<PaypalApi> { PaypalApi() }
 
     viewModelOf(::AuthViewModel)
     viewModelOf(::HomeGraphViewModel)
@@ -42,12 +44,11 @@ val sharedModule = module {
     viewModelOf(::CartViewModel)
     viewModelOf(::CategorySearchViewModel)
     viewModelOf(::CheckoutViewModel)
-    single<PaypalApi> { PaypalApi() }
+    viewModelOf(::PaymentViewModel)
 
 //    single<IntentHandler> { IntentHandler() }
 
 
-//    viewModelOf(::PaymentViewModel)
 }
 
 expect val targetModule: Module
